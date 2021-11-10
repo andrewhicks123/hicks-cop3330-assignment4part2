@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ToDoListController">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <SplitPane dividerPositions="0.2, 0.4, 0.6, 0.8, 0.5" layoutX="24.0" layoutY="51.0" orientation="VERTICAL" prefHeight="338.0" prefWidth="98.0">
+               <items>
+                  <Button fx:id="AddItemButton" mnemonicParsing="false" onAction="#AddItemButtonPressed" prefHeight="66.0" prefWidth="120.0" text="Add Item" />
+                  <Button fx:id="EditItemButton" mnemonicParsing="false" onAction="#EditItemButtonPressed" prefHeight="66.0" prefWidth="120.0" text="Edit Item" />
+                  <Button fx:id="DeleteItemButton" mnemonicParsing="false" onAction="#DeleteItemButtonPressed" prefHeight="66.0" prefWidth="120.0" text="Delete Item" />
+                  <Button fx:id="ChangeStatusButton" mnemonicParsing="false" onAction="#ChangeStatusButtonPressed" prefHeight="34.0" prefWidth="97.0" text="Change Status" />
+                  <Button fx:id="ClearListButton" mnemonicParsing="false" onAction="#ClearListButtonPressed" prefHeight="66.0" prefWidth="120.0" text="Clear List" />
+                  <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeButtonPressed" prefHeight="66.0" prefWidth="120.0" text="Home Screen" />
+               </items>
+            </SplitPane>
+            <Text layoutX="45.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <TableView fx:id="toDoListItemsView" layoutX="145.0" layoutY="51.0" prefHeight="338.0" prefWidth="470.0" />
+            <Label fx:id="welcomeText" layoutX="175.0" layoutY="15.0" prefHeight="28.0" prefWidth="105.0" text="List Name">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <SplitPane dividerPositions="0.5, 0.5" layoutX="324.0" layoutY="14.0" prefHeight="30.0" prefWidth="290.0">
+              <items>
+                  <Button fx:id="ViewAllButton" mnemonicParsing="false" onAction="#ViewAllButtonPressed" text="View All" />
+                  <Button fx:id="ViewIncompletedButton" mnemonicParsing="false" onAction="#ViewIncompletedButtonPressed" text="View Incompleted" />
+                  <Button fx:id="ViewCompletedButton" mnemonicParsing="false" onAction="#ViewCompletedButtonPressed" text="View Completed" />
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

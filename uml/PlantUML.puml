@@ -1,0 +1,167 @@
+@startuml
+class AddNewItemController{
+- TextField itemDescriptionTextField
+- TextField itemDueDateTextField
+- Button addNewItemOkButton
+- Button addNewItemCancelButton
+- Item newItem
++ void initialize(Item)
++ void addNewItemOkButtonPressed()
++ void addNewItemCancelButtonPressed()
+}
+class CreateListController{
+- TextField newListNameTextField
+- Button newListOkButton
+- Button newListCancelButton
+- ToDoList newList
++ void newListOkButtonPressed()
++ void newListCancelButtonPressed()
+}
+class DateOperator{
++ {static} boolean isDate(String)
+
+}
+class EditItemController{
+- TextField itemDescriptionTextField
+- TextField itemDueDateTextField
+- Button editItemOkButton
+- Button editItemCancelButton
+- Item item
++ void initialize(Item)
++ void editItemOkButtonPressed()
++ void editItemCancelButtonPressed()
+}
+class FileOperator{
+- String filePath
+- String fileName
+- void createFile(File)
+- void writeToFile(String)
+- ToDoList jsonToJava()
+- String jsonToJson(ToDoList)
+- boolean isFile(File)
++ void setFilePath(String)
++ String getFilePath()
++ void setFileName(String)
++ void saveToDoList(ToDoList,File)
++ ToDoList loadToDoList(File)
+}
+class Item{
+- String description
+- String dueDate
+- boolean status
++ void setDescription(String)
++ String getDescription()
++ void setDueDate(String)
++ String getDueDate()
++ void setStatus(boolean)
++ boolean isStatus()
+}
+class ItemTableBuilder{
+- TableView<Item> table
+- TableView.TableViewSelectionModel<Item> selection
++ void buildTable()
++ void setTable(TableView<Item>)
++ TableView<Item> getTable()
++ TableView.TableViewSelectionModel<Item> getSelection()
++ void loadTable(ArrayList<Item>)
+}
+class ListOfLists{
+- ArrayList<ToDoList> lists
++ void addList(ToDoList)
++ void deleteList(ToDoList)
++ void deleteAllLists()
++ ArrayList<ToDoList> getLists()
++ ToDoList getList(String)
+}
+class ListTableBuilder{
+- TableView<ToDoList> table
+- TableView.TableViewSelectionModel<ToDoList> selection
++ void buildTable()
++ void setTable(TableView<ToDoList>)
++ TableView<ToDoList> getTable()
++ TableView.TableViewSelectionModel<ToDoList> getSelection()
++ void loadTable(ArrayList<ToDoList>)
+}
+class MainScreenController{
+- Button CreateListButton
+- Button DeleteListButton
+- Button EditListButton
+- Button ViewListButton
+- Button OpenFileButton
+- Button SaveFileButton
+- Label welcomeText
+- TableView<ToDoList> toDoListListsView
+- ListOfLists lists
+- ItemTableBuilder tableOperator
+- SceneOperator sceneOperator
+- FileChooser fileChooser
+- FileOperator fileOperator
++ void CreateListButtonPressed()
++ void DeleteListButtonPressed()
++ void ViewListButtonPressed()
++ void OpenFileButtonPressed()
++ void SaveFileButtonPressed()
++ void EditListButtonPressed()
+}
+class SceneOperator{
+- FXMLLoader loader
++ Parent readyScene(Views)
++ void popUpScene(String,Parent)
++ FXMLLoader getLoader()
+}
+class ToDoList{
+- ArrayList<Item> items
+- String name
++ void addItem(Item)
++ void deleteItem(String)
++ void deleteAllItems()
++ Item getSingleItem(String)
++ ArrayList<Item> getCompleteItems()
++ ArrayList<Item> getIncompleteItems()
+}
+class ToDoListApplication{
++ void start(Stage)
++ {static} void main(String[])
+}
+class ToDoListController{
+- Button HomeButton
+- Button AddItemButton
+- Button EditItemButton
+- Button DeleteItemButton
+- Button ClearListButton
+- Button ChangeStatusButton
+- Button ViewAllButton
+- Button ViewCompletedButton
+- Button ViewIncompletedButton
+- Label welcomeText
+- TableView<Item> toDoListItemsView
+- ToDoList ToDoList
+- ItemTableBuilder tableOperator
+- SceneOperator sceneOperator
+- FileChooser fileChooser
+- FileOperator fileOperator
++ void HomeButtonPressed()
++ void AddItemButtonPressed()
++ void DeleteItemButtonPressed()
++ void EditItemButtonPressed()
++ void ChangeStatusButtonPressed()
++ void ClearListButtonPressed()
++ void ViewAllButtonPressed()
++ void ViewIncompletedButtonPressed()
++ void ViewCompletedButtonPressed()
+}
+class Views{
+
+}
+class EditListTitleController{
+- TextField editListTitleTextField
+- Button editListTitleOkButton
+- Button editListTitleCancelButton
+- ToDoList newList
++ void initialize(ToDoList)
++ void editListTitleOkButtonPressed()
++ void editListTitleCancelButtonPressed()
+
+}
+
+@enduml
