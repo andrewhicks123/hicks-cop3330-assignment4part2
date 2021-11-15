@@ -17,7 +17,9 @@ public class AddNewItemController {
     @FXML private Button addNewItemCancelButton;
     private Item newItem;
 
-    public void initialize(Item item) { this.newItem = item; }
+    public void initialize(Item item) {
+        this.newItem = item;
+    }
 
     @FXML
     public void addNewItemOkButtonPressed(){

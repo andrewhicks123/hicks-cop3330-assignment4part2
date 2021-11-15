@@ -9,12 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
-import javafx.stage.FileChooser;
-
 import javafx.scene.Parent;
-
 import java.util.ArrayList;
-import java.util.stream.IntStream;
 
 public class MainScreenController {
 
@@ -43,8 +39,6 @@ public class MainScreenController {
     private final ListTableBuilder tableOperator = new ListTableBuilder();
     private final SceneOperator sceneOperator = new SceneOperator();
 
-    private ToDoList selected = new ToDoList();
-
     public void initialize(){
         tableOperator.setTable(mainTableListView);
         tableOperator.buildTable();
@@ -53,14 +47,19 @@ public class MainScreenController {
     }
     @FXML
     public void CreateListButtonPressed() {
+        // create list
         ToDoList newList = new ToDoList();
-
+        // ready the addlist box
         Parent page = sceneOperator.readyScene(Views.ADDLIST);
-
+        //
         CreateListController createListController = sceneOperator.getLoader().getController();
+        // initalize the new list
         createListController.initalize(newList);
+        // show the create list scene
         sceneOperator.popUpScene("Create List", page);
+        // add list to mainlist
         mainList.add(newList);
+        // add list to table
         mainTableListView.getItems().add(newList);
 
 
@@ -69,26 +68,34 @@ public class MainScreenController {
     }
     @FXML
     public void DeleteListButtonPressed() {
+        // get selection
         ToDoList selectedItem = mainTableListView.getSelectionModel().getSelectedItem();
+        // remove from list
         mainList.remove(selectedItem);
+        // remove from screen
         mainTableListView.getItems().removeAll(selectedItem);
 
     }
     @FXML
     public void ViewListButtonPressed(){
+        // get selected item
         ToDoList selectedItem = mainTableListView.getSelectionModel().getSelectedItem();
-        selected = selectedItem;
+
+        // get scene and controller
         Parent page = sceneOperator.readyScene(Views.ListScreen);
         ToDoListController toDoListController = sceneOperator.getLoader().getController();
 
+        // give ToDoListController the list to show
         toDoListController.setViewList(selectedItem);
 
+        // remove the list from main screen
         mainList.remove(selectedItem);
         mainTableListView.getItems().removeAll(selectedItem);
 
+        // Popup list screen
         sceneOperator.popUpScene("ToDoList", page);
 
-
+        // Add updated list back to main screen
         mainList.add(toDoListController.getList());
         mainTableListView.getItems().add(toDoListController.getList());
 
@@ -103,21 +110,19 @@ public class MainScreenController {
     }
     public void EditListButtonPressed(){
         // get selection
-
         ToDoList selectedItem = mainTableListView.getSelectionModel().getSelectedItem();
-
+        // remove selected from table
         mainTableListView.getItems().removeAll(selectedItem);
-
+        // ready the editlist page
         Parent page = sceneOperator.readyScene(Views.EDITLIST);
-
         EditListTitleController editItemController = sceneOperator.getLoader().getController();
-
+        // initalize selectedItem
         editItemController.initialize(selectedItem);
-
+        // show edit list page
         sceneOperator.popUpScene("Edit List", page);
-
+        // add item to list
         mainList.add(selectedItem);
-
+        // add item to view
         mainTableListView.getItems().add(selectedItem);
 
     }

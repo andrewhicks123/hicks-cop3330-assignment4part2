@@ -9,22 +9,21 @@ import java.util.ArrayList;
 public class ToDoList {
     private String name;
     private int capacity;
-    private ArrayList<Item> items = new ArrayList<Item>();
-
+    private ArrayList<Item> items = new ArrayList<>();
     public ToDoList(){
         this.name = "name";
         this.capacity = items.size();
     }
-    public void changeName(String newname){
-        this.name = newname;
-    }
     public ArrayList<Item> getList(){
+
         return this.items;
     }
     public void setName(String newname){
+
         this.name = newname;
     }
     public String getName(){
+
         return this.name;
     }
     public int getCapacity(){
@@ -43,12 +42,8 @@ public class ToDoList {
             }
         }
     }
-    public void deleteAllItems(){ items.clear(); }
-
-    public Item getSingleItem(String description){
-
-
-        return items.get(0);
+    public void deleteAllItems(){
+        items.clear();
     }
     public ArrayList<Item> getCompleteItems(){
         ArrayList<Item> complete = new ArrayList<>();
@@ -67,9 +62,6 @@ public class ToDoList {
                 incomplete.add(item);
             }
         }
-
         return incomplete;
     }
-
-
 }

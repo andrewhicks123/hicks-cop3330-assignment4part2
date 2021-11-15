@@ -8,7 +8,6 @@ package ucf.assignments;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.util.ArrayList;
 
 public class ListTableBuilder {
@@ -26,6 +25,7 @@ public class ListTableBuilder {
         table.getColumns().add(nameCol);
         table.getColumns().add(sizeCol);
     }
+
     public void setTable(TableView<ToDoList> table){
         this.table = table;
     }

@@ -20,7 +20,6 @@ public class Item {
         this.description = desc;
     }
     public String getDescription(){
-
         return this.description;
     }
     public void setDueDate(String dueDate){
@@ -30,7 +29,6 @@ public class Item {
         return dueDate;
     }
     public void setStatus(boolean status){
-
         this.status = status;
     }
     public boolean isStatus(){

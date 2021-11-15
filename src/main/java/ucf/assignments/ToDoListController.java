@@ -10,9 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.util.ArrayList;
 
@@ -56,19 +54,25 @@ public class ToDoListController {
 
     }
     public void setViewList(ToDoList list){
+        // set list in controller to list
         this.list = list;
+        // set label on page to list title
         welcomeText.setText(list.getName());
+        // clear view
         toDoListItemsView.getItems().clear();
+        // tell operator what table to operate on
         tableOperator.setTable(toDoListItemsView);
+        // load the table
         tableOperator.loadTable(list.getList());
 
     }
     public ToDoList getList(){
+
         return list;
     }
     @FXML
     public void HomeButtonPressed(){
-        //MainScreenController.mainTableListView.selectedItem = list;
+        // close list screen
         Stage stage = (Stage) HomeButton.getScene().getWindow();
         stage.close();
     }
@@ -94,20 +98,31 @@ public class ToDoListController {
     }
     @FXML
     public void DeleteItemButtonPressed() {
+        // get selection
         Item selectedItem = toDoListItemsView.getSelectionModel().getSelectedItem();
+        // delete item
         list.deleteItem(selectedItem.getDescription());
+        // remove item from table
         toDoListItemsView.getItems().removeAll(selectedItem);
     }
     @FXML
     public void EditItemButtonPressed() {
+        // get selected item
         Item selectedItem = toDoListItemsView.getSelectionModel().getSelectedItem();
+        // delete item from list
         list.deleteItem(selectedItem.getDescription());
+        // delete item from view
         toDoListItemsView.getItems().removeAll(selectedItem);
+        // ready the edititem screen
         Parent page = sceneOperator.readyScene(Views.EDITITEM);
         EditItemController editItemController = sceneOperator.getLoader().getController();
+        // initalize selectedItem
         editItemController.initialize(selectedItem);
+        // show edit item scene
         sceneOperator.popUpScene("Edit item", page);
+        // add item to list
         list.addItem(selectedItem);
+        // add item to view
         toDoListItemsView.getItems().add(selectedItem);
     }
     @FXML

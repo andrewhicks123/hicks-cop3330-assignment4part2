@@ -11,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
 public class CreateListController {
     @FXML private TextField newListNameTextField;
     @FXML private Button newListOkButton;
