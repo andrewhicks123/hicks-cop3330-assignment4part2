@@ -1,29 +1,40 @@
-# hicks-cop3330-assignment4
-COP3330 - Application Assignment 1, Part 1
+# Andrew Hicks
+# COP3330 - Application Assignment 1, Part 1
 
-Directions
-Your application shall satisfy the following requirements:
+# Lists Control
+Create List - 
+Click create list and enter the name
 
-The application shall be able to manage at least 100 unique todo lists
+Edit List - 
+Select the list, and click edit list
 
-A todo list shall have a title
-A todo list shall have the capacity to store at least 100 unique items
+Delete List -
+Select the list, and click delete
 
-An item shall have a description
-An item shall have a due date, formatted as YYYY-MM-DD
+Open File -
+Click open file and select the file
 
-A user shall be able to add a new todo list
-A user shall be able to remove an existing todo list
-A user shall be able to edit the title of an existing todo list
-A user shall be able to add a new item to an existing todo list
-A user shall be able to remove an item from an existing todo list
-A user shall be able to edit the description of an item within an existing todo list
-A user shall be able to edit the due date of an item within an existing todo list
-A user shall be able to mark an item in a todo list as complete
-A user shall be able to display all of the existing items in a todo list
-A user shall be able to display only the incompleted items in a todo list
-A user shall be able to display only the completed items in a todo list
-A user shall be able to save all of the items in a single todo list to external storage
-A user shall be able to save all of the items across all of the todo lists to external storage
-A user shall be able to load a single todo list that was previously saved to external storage
-A user shall be able to load multiple todo lists that were previous saved to external storage
+Save File -
+Click save file and select the file to save to
+
+# Individual List Control
+View List -
+Select list, and click View List
+
+Add item -
+Click add item, and enter details and click Ok
+
+Delete item -
+Select item, click Delete Item
+
+Edit Item -
+Select item from list, click Edit Item and enter new details
+
+Clear list -
+Click Clear List
+
+Change Item Status - 
+Click Change Status
+
+View all/complete/incomplete -
+Choose the option at the top of the screen
