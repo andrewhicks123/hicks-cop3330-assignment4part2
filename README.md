@@ -1,5 +1,5 @@
 # Andrew Hicks
-# COP3330 - Application Assignment 1, Part 1
+# COP3330 - Application Assignment 1, Part 2
 
 # Lists Control
 Create List - 
